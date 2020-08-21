@@ -1,9 +1,10 @@
 import OpenGL.GL as gl
 import OpenGL.GLUT as glut
+import OpenGL.GLU as glu
 
-
-def init_window(display_callback, position=(0, 200), size=(540, 480),
-                bg_color=(0, 0, 0, 1), title="pyOpenGL Window"):
+def init_window(display_callback, position=(200, 200), size=(540, 480),
+                bg_color=(0, 0, 0, 1), draw_color=(1, 1, 1), point_size=4,
+                ortho=(0, 640, 0, 480), title="pyOpenGL Window"):
 
     # Initialize GLUT
     glut.glutInit()
@@ -12,9 +13,21 @@ def init_window(display_callback, position=(0, 200), size=(540, 480),
     glut.glutInitWindowSize(*size)
     glut.glutInitWindowPosition(*position)
     glut.glutCreateWindow(title)
-    gl.glClearColor(*bg_color) # Color to be filled after clearing.
+    gl.glClearColor(*bg_color)        # Color to be filled after clearing.
+
+    gl.glColor3f(*draw_color)         #  set the drawing color(white)
+    gl.glPointSize(point_size)        # a 'dot' is 4 by 4 pixels
+    glu.gluOrtho2D(*ortho)
+
     glut.glutDisplayFunc(display_callback)  # Set display Callback
     glut.glutMainLoop()
+
+
+def approx(num):
+    if num % 1 < 0.5:
+        return int(num/1)
+    else:
+        return int(num/1) + 1
 
 
 if __name__ == "__main__":
@@ -26,5 +39,4 @@ if __name__ == "__main__":
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT)
         gl.glFlush(); # Commit changes
 
-    init_window(display, position=(0, 200), size=(540, 480),
-               bg_color=(0, 0, 0, 1), title="Init Window")
+    init_window(display, title="Init Window")
