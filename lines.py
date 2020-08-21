@@ -97,5 +97,5 @@ def drawBressenham(p1, p2):
                 x += 1
 
 
-# init_window(display_DDA, title="DDA Line Algorithms")
-init_window(display_Bres, title="Bressenham Line Algorithms")
+init_window(display_DDA, title="DDA Line Algorithms")
+# init_window(display_Bres, title="Bressenham Line Algorithms")
