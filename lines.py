@@ -1,4 +1,3 @@
-import OpenGL.GL as gl
 from dots import drawDot
 from window import init_window, approx
 
@@ -63,7 +62,7 @@ def drawBressenham(p1, p2):
                 x += 1
 
 if __name__ == "__main__":
-
+    import OpenGL.GL as gl
     def display_DDA():
 
         # Square
