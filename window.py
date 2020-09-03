@@ -4,7 +4,8 @@ import OpenGL.GLU as glu
 
 def init_window(display_callback, position=(200, 200), size=(500, 500),
                 bg_color=(0, 0, 0, 1), draw_color=(1, 1, 1), point_size=4,
-                ortho=(0, 500, 0, 500), title="pyOpenGL Window"):
+                ortho=(0, 500, 0, 500), title="pyOpenGL Window",
+                mouse_callback=None):
 
     # Initialize GLUT
     glut.glutInit()
@@ -19,6 +20,7 @@ def init_window(display_callback, position=(200, 200), size=(500, 500),
     gl.glPointSize(point_size)        # a 'dot' is 4 by 4 pixels
     glu.gluOrtho2D(*ortho)
 
+    glut.glutMouseFunc(mouse_callback)
     glut.glutDisplayFunc(display_callback)  # Set display Callback
     glut.glutMainLoop()
 
