@@ -2,40 +2,6 @@ import OpenGL.GL as gl
 from dots import drawDot
 from window import init_window, approx
 
-def display_DDA():
-
-    # Square
-    # Origin: 200, 200
-    # Size: 100, 100
-    drawDDA((200+100, 200+100), (200-100, 200+100))
-    drawDDA((200-100, 200+100), (200-100, 200-100))
-    drawDDA((200-100, 200-100), (200+100, 200-100))
-    drawDDA((200+100, 200-100), (200+100, 200+100))
-
-    #Diagonals
-    drawDDA((200+100, 200-100), (200-100, 200+100))
-    drawDDA((200-100, 200-100), (200+100, 200+100))
-
-    gl.glFlush()
-
-
-def display_Bres():
-
-    # Square
-    # Origin: 200, 200
-    # Size: 100, 100
-    drawBressenham((200+100, 200+100), (200-100, 200+100))
-    drawBressenham((200-100, 200+100), (200-100, 200-100))
-    drawBressenham((200-100, 200-100), (200+100, 200-100))
-    drawBressenham((200+100, 200-100), (200+100, 200+100))
-
-    #Diagonals
-    drawBressenham((200+100, 200-100), (200-100, 200+100))
-    drawBressenham((200-100, 200-100), (200+100, 200+100))
-
-    gl.glFlush()
-
-
 def drawDDA(p1, p2):
     dx = p2[0] - p1[0]
     dy = p2[1] - p1[1]
@@ -96,6 +62,40 @@ def drawBressenham(p1, p2):
                 p += 2*(dx-dy)
                 x += 1
 
+if __name__ == "__main__":
 
-init_window(display_DDA, title="DDA Line Algorithms")
-# init_window(display_Bres, title="Bressenham Line Algorithms")
+    def display_DDA():
+
+        # Square
+        # Origin: 200, 200
+        # Size: 100, 100
+        drawDDA((200+100, 200+100), (200-100, 200+100))
+        drawDDA((200-100, 200+100), (200-100, 200-100))
+        drawDDA((200-100, 200-100), (200+100, 200-100))
+        drawDDA((200+100, 200-100), (200+100, 200+100))
+
+        #Diagonals
+        drawDDA((200+100, 200-100), (200-100, 200+100))
+        drawDDA((200-100, 200-100), (200+100, 200+100))
+
+        gl.glFlush()
+
+
+    def display_Bres():
+
+        # Square
+        # Origin: 200, 200
+        # Size: 100, 100
+        drawBressenham((200+100, 200+100), (200-100, 200+100))
+        drawBressenham((200-100, 200+100), (200-100, 200-100))
+        drawBressenham((200-100, 200-100), (200+100, 200-100))
+        drawBressenham((200+100, 200-100), (200+100, 200+100))
+
+        #Diagonals
+        drawBressenham((200+100, 200-100), (200-100, 200+100))
+        drawBressenham((200-100, 200-100), (200+100, 200+100))
+
+        gl.glFlush()
+
+    init_window(display_DDA, title="DDA Line Algorithms")
+    # init_window(display_Bres, title="Bressenham Line Algorithms")
