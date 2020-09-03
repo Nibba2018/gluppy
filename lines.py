@@ -1,5 +1,5 @@
 from dots import drawDot
-from window import init_window, approx
+from window import approx
 
 def drawDDA(p1, p2):
     dx = p2[0] - p1[0]
@@ -63,6 +63,7 @@ def drawBressenham(p1, p2):
 
 if __name__ == "__main__":
     import OpenGL.GL as gl
+    from window import init_window
     def display_DDA():
 
         # Square

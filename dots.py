@@ -1,6 +1,4 @@
 import OpenGL.GL as gl
-import OpenGL.GLUT as glut
-import OpenGL.GLU as glu
 
 def drawDot(x, y):
     gl.glBegin(gl.GL_POINTS)

@@ -1,4 +1,3 @@
-from window import init_window
 from dots import drawDot
 
 def drawSymmetry(center, pt):
@@ -42,6 +41,7 @@ def drawCircle(center, radius):
 if __name__ == "__main__":
 
     import OpenGL.GL as gl
+    from window import init_window
     def display_circle():
         center = (250, 250)
         radius = 50
