@@ -18,6 +18,24 @@ def drawSymmetry(center, pt):
     drawDot(xc - y, yc - x)
 
 
+def drawBresCirle(center, radius):
+    x = 0
+    y = radius
+    d = 3 - 2*radius
+
+    while x<=y:
+
+        drawSymmetry(center, (x, y))
+
+        if d>0:
+            y -= 1
+            d += 4*(x - y) + 10
+        else:
+            d += 4*x + 6
+
+        x += 1
+
+
 def drawCircle(center, radius):
 
     x = 0
@@ -43,11 +61,15 @@ if __name__ == "__main__":
     import OpenGL.GL as gl
     from window import init_window
     def display_circle():
-        center = (250, 250)
+        center1 = (200, 250)
+        center2 = (310, 250)
         radius = 50
 
-        drawDot(*center)
-        drawCircle(center, radius)
+        drawDot(*center1)
+        drawCircle(center1, radius)
+
+        drawDot(*center2)
+        drawBresCirle(center2, radius)
         gl.glFlush()
 
     init_window(display_circle, title="Mid point Circle ALGO", point_size=1.0)
